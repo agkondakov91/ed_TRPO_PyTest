@@ -23,7 +23,16 @@ def test_multiply():
 
 
 def test_divide():
-    assert divide(10, 2) == 5.0
+    # Arrange — готовим данные
+    numerator = 10
+    denominator = 2
+    expect = 5.0
+
+    # Act — вызываем код, который тестируем
+    result = divide(numerator, denominator)
+
+    # Assert — проверяем результат
+    assert expect == result
 
 
 def test_divide_by_zero():
