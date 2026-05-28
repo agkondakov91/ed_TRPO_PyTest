@@ -2,14 +2,17 @@ from src.calculator import add, subtract, multiply, divide
 import pytest
 
 
+@pytest.mark.fast
 def test_add():
     assert add(40, 2) == 42
 
 
+@pytest.mark.fast
 def test_add_negative():
     assert add(-1, -1) == -2
 
 
+@pytest.mark.slow
 def test_add_zero():
     assert add(0, 5) == 5
 
