@@ -41,3 +41,21 @@ def test_calculate_total_negative_quantity_raises_error():
     items = [{"price": 100.0, "quantity": -1}]
     with pytest.raises(ValueError, match="не может быть отрицательным"):
         calculate_total(items)
+
+
+@pytest.mark.parametrize("items, expected", [
+    (
+        [{"price": 100.0, "quantity": 2}],
+        200.0,
+    ),
+    (
+        [{"price": 100.0, "quantity": 2}, {"price": 50.0, "quantity": 3}],
+        350.0,
+    ),
+    (
+        [],
+        0.0,
+    ),
+], ids=["one product", "two products", "empty_basket"])
+def test_calculate_total(items, expected):
+    assert calculate_total(items) == expected
